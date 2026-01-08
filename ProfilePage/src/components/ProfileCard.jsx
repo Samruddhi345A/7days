@@ -23,7 +23,7 @@ function ProfileCard() {
                     <button className='bg-cyan-500 text-white px-4 py-2 rounded-full mb-5 hover:bg-blue-800 border-0 transition duration-300'>Connect</button>
                 </div>
             </article>
-        </>Te
+        </>
     )
 }
 

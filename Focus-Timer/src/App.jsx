@@ -2,14 +2,15 @@ import React from 'react'
 import { useEffect } from 'react'
 
 function App() {
-  const [isRunning, setIsRunning] = React.useState(true)
+  const [isRunning, setIsRunning] = React.useState(false)
   const [timeLeft, setTimeLeft] = React.useState(1500)
   useEffect(() => {
     if (!isRunning) {
       return
     }
+    let timerid
     if (isRunning && timeLeft > 0) {
-      const timerid = setInterval(() => {
+      timerid = setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
             clearInterval(timerid)
@@ -21,7 +22,9 @@ function App() {
         })
       }, 1000)
     }
-
+    return () => {
+      clearInterval(timerid)
+    }
 
   }, [isRunning])
 
